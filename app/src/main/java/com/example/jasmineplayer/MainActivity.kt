@@ -25,7 +25,6 @@ import androidx.compose.material.icons.filled.ArrowDownward
 import androidx.compose.material.icons.filled.ArrowUpward
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -93,7 +92,6 @@ class MainActivity : ComponentActivity() {
                 val songViewModel: SongViewModel = viewModel()
                 val folderViewModel: FolderViewModel = viewModel()
                 val favoritesViewModel: FavoritesViewModel = viewModel()
-                val settingsViewModel: SettingsViewModel = viewModel()
 
                 navController = rememberNavController()
 
@@ -179,12 +177,6 @@ class MainActivity : ComponentActivity() {
                                     }
                                 },
                                 actions = {
-                                    if (currentScreen != Screen.Settings) {
-                                        IconButton(onClick = { navController.navigate(Screen.Settings.route) }) {
-                                            Icon(Icons.Default.Settings, contentDescription = "Settings")
-                                        }
-                                    }
-
                                     if (!isSearchActive) {
                                         IconButton(onClick = { isSearchActive = true }) {
                                             Icon(Icons.Default.Search, contentDescription = "Search")
@@ -386,9 +378,6 @@ class MainActivity : ComponentActivity() {
                                             onShowQueue = { showQueueBottomSheet = true },
                                             onShowLyrics = { showLyricsBottomSheet = true }
                                         )
-                                    }
-                                    composable(Screen.Settings.route) {
-                                        SettingsScreen()
                                     }
                                 }
 

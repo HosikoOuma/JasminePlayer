@@ -10,7 +10,6 @@ sealed class Screen(val route: String, val title: String) {
     }
     object Favorites : Screen("favorites", "Favorites")
     object Player : Screen("player", "Player")
-    object Settings : Screen("settings", "Settings")
 
     companion object {
         fun fromRoute(route: String?): Screen {
@@ -19,7 +18,6 @@ sealed class Screen(val route: String, val title: String) {
                 route == "folders" -> Folders
                 route == "favorites" -> Favorites
                 route == "player" -> Player
-                route == "settings" -> Settings
                 else -> SongList
             }
         }
